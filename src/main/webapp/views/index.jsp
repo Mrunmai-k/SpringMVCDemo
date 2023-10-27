@@ -9,7 +9,7 @@
 <body>	
 	Welcome to Spring
 
-    <form action="addAlien">
+    <form action="addAlien" method="post">
         <!-- enter first num: <input type="text" name="first" id="first"><br>
         enter second num: <input type="text" name="second" id="second"><br> -->
 

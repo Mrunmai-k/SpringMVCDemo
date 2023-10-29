@@ -12,7 +12,6 @@ import javax.persistence.Table;
 public class Alien {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="aid")
 	private int aid;
 	

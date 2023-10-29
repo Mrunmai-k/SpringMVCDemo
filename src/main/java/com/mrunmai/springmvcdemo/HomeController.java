@@ -61,7 +61,7 @@ public class HomeController
     // Way 2
     @PostMapping(value = "addAlien")
     public String addAlien(
-            /* @RequestParam("aid") int aid, @RequestParam("aname") String aname, Model m */ @ModelAttribute("a1") Alien a) {
+            /* @RequestParam("aid") int aid, @RequestParam("aname") String aname, Model m */ @ModelAttribute("result") Alien a) {
         /*
          * Alien a = new Alien();
          * a.setAid(aid);
@@ -69,7 +69,8 @@ public class HomeController
          * 
          * m.addAttribute("alien", a);
          */
-        return "result";
+    	dao.addAlien(a);
+        return "showAliens";
     }
     // instead of writing this all commented section just create modelattri and it
     // will assign the values automatically.

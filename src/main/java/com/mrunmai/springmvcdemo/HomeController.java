@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 // import org.springframework.web.bind.annotation.RequestMethod;
 // import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mrunmai.springmvcdemo.dao.AlienDao;
 import com.mrunmai.springmvcdemo.model.Alien;
@@ -74,6 +75,12 @@ public class HomeController
     }
     // instead of writing this all commented section just create modelattri and it
     // will assign the values automatically.
+    
+    @GetMapping("getAlien")
+    public String getAlien(@RequestParam int aid, Model m) {
+        m.addAttribute("result",dao.getAlien(aid));
+        return "showAliens";
+    }
 }
 
 /*

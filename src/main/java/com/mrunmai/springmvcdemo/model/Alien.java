@@ -1,9 +1,27 @@
 package com.mrunmai.springmvcdemo.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="alien")
 public class Alien {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="aid")
 	private int aid;
+	
+	@Column(name="aname")
 	private String aname;
 
+	public Alien() {
+	}
+	
 	public Alien(int aid, String aname) {
 		this.aid = aid;
 		this.aname = aname;

@@ -1,8 +1,6 @@
 package com.mrunmai.springmvcdemo;
 
-import java.util.Arrays;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 // import org.springframework.web.bind.annotation.RequestMethod;
 // import org.springframework.web.bind.annotation.RequestParam;
 
+import com.mrunmai.springmvcdemo.dao.AlienDao;
 import com.mrunmai.springmvcdemo.model.Alien;
 
 @Controller
-public class HomeController {
-
+public class HomeController 
+{	
+	@Autowired
+	private AlienDao dao;
+		
     // this will get called before any request and will create a model and adds the
     // attribute to model
     @ModelAttribute
@@ -50,8 +52,8 @@ public class HomeController {
 
     @GetMapping("getAliens")
     public String getAliens(Model m) {
-        List<Alien> aliens = Arrays.asList(new Alien(101, "Mrunmai"), new Alien(102, "Sangram"));
-        m.addAttribute("result",aliens);
+//        List<Alien> aliens = Arrays.asList(new Alien(101, "Mrunmai"), new Alien(102, "Sangram"));
+        m.addAttribute("result",dao.getAliens());
         return "showAliens";
     }
 
